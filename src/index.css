@@ -1,0 +1,6 @@
+/* src/index.css */
+body,
+#root {
+  height: 100vh;
+  margin: 0;
+}
