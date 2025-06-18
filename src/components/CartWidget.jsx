@@ -1,13 +1,30 @@
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { FaShoppingCart } from "react-icons/fa";
 
 const CartWidget = () => {
+  const { cantidadTotal } = useContext(CartContext);
+
   return (
-    <button className="btn btn-outline-light position-relative">
-      <FaShoppingCart />
-      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        3
-      </span>
-    </button>
+    <div style={{ position: "relative" }}>
+      <FaShoppingCart size={24} />
+      {cantidadTotal() > 0 && (
+        <span
+          style={{
+            position: "absolute",
+            top: "-8px",
+            right: "-8px",
+            background: "red",
+            color: "white",
+            borderRadius: "50%",
+            padding: "2px 6px",
+            fontSize: "12px",
+          }}
+        >
+          {cantidadTotal()}
+        </span>
+      )}
+    </div>
   );
 };
 
